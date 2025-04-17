@@ -66,8 +66,42 @@ public class BoardRepositoryTest {
 		System.out.println(list);
 	}
 	
+	@Test
+	public void 게시물_수정() {
+		
+		// 1번 게시물 수정
+		
+		// 1. 테이블에서 1번 게시물 조회
+		Optional<Board> optional = repository.findById(1);
+		
+		// 2. 1번 게시물이 존재한다면 데이터 수정
+		if (optional.isPresent()) {
+			Board board = optional.get();
+			// 데이터 일부 수정
+			board.setContent("내용이 수정되었습니다");
+			// 수정된 데이터를 테이블에 반영
+			repository.save(board);
+			// save 함수를 호출하면 insert 또는 update 쿼리가 생성됨
+			// 1번 테이블이 없다면 
+		}
+	}
 	
+	// 단건 삭제 / 전체 삭제
 	
+	@Test
+	public void 게시물_단건_삭제() {
+		
+		// delete ~ : 삭제
+		// by ~ : 조건
+		// id : primary key
+		repository.deleteById(1);
+	}
+	
+	@Test
+	public void 게시물_전체_삭제() {
+		
+		repository.deleteAll();
+	}
 	
 	
 	

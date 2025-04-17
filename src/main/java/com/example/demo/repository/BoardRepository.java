@@ -6,7 +6,7 @@ import com.example.demo.entity.Board;
 
 // 게시물 데이터를 처리하는 클래스
 
-// 리파지토리 만즈는 방법
+// 리파지토리 만드는 방법
 // jpa 상속받기
 // 제네릭 타입 수정 (엔티티, pk의 타입)
 public interface BoardRepository extends JpaRepository<Board, Integer> {
